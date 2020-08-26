@@ -8,16 +8,14 @@ Class {
 	#name : #GetTextTranslator,
 	#superclass : #NaturalLanguageTranslator,
 	#instVars : [
-		'moFiles',
-		'id'
+		'moFiles'
 	],
 	#classVars : [
 		'LocaleDirsForDomain',
 		'SystemDefaultLocaleDirs',
-		'Translators',
 		'UserDefaultLocaleDirs'
 	],
-	#category : 'Gettext-Core'
+	#category : #'Gettext-Core'
 }
 
 { #category : #'translation data layout' }
