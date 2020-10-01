@@ -191,13 +191,14 @@ GetTextTranslator class >> setLocaleDir: path forDomain: aDomainName [
 
 { #category : #'translation data layout' }
 GetTextTranslator class >> setupLocaleDirs [
-	| dirs sepa localesDirName |
+	| dirs sepa localesDirName vmDir |
 	sepa := FileSystem disk delimiter asString.
 	SystemDefaultLocaleDirs := nil.
 	dirs := self systemDefaultLocaleDirs.
 	localesDirName := 'locale'.
 	dirs add: Smalltalk imageDirectory fullName , sepa , localesDirName.
-	dirs add: Smalltalk vm directory fullName , sepa , localesDirName.
+	vmDir := Smalltalk vm directory.
+	dirs add: ((vmDir isKindOf: String) ifTrue: [ vmDir ] ifFalse: [ vmDir fullName ]) , sepa , localesDirName.
 	^ dirs
 ]
 
