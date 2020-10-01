@@ -198,7 +198,7 @@ GetTextTranslator class >> setupLocaleDirs [
 	localesDirName := 'locale'.
 	dirs add: Smalltalk imageDirectory fullName , sepa , localesDirName.
 	vmDir := Smalltalk vm directory.
-	dirs add: ((vmDir isKindOf: String) ifTrue: [ vmDir ] ifFalse: [ vmDir fullName ]) , sepa , localesDirName.
+	dirs add: (vmDir isString ifTrue: [ vmDir ] ifFalse: [ vmDir fullName ]) , sepa , localesDirName.
 	^ dirs
 ]
 
